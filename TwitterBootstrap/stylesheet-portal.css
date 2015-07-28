@@ -1,0 +1,1223 @@
+/*
+ * Parature Portal Template - Twitter Bootstrap 2.3.2 Theme
+ * compatible with Parature Frameless Portal
+ *
+ * has no effect on the following pages:
+ * DLRedirect.asp, chatdetails.asp, forumLauncher.asp
+ */
+
+@import url("//ajax.aspnetcdn.com/ajax/bootstrap/2.3.2/css/bootstrap.min.css");
+@import url("//ajax.aspnetcdn.com/ajax/bootstrap/2.3.2/css/bootstrap-responsive.min.css");
+
+/* INSERT CUSTOM BOOTSTRAP STYLES HERE */
+
+/* END CUSTOM BOOTSTRAP STYLES */
+
+/*************************
+ * Reset to Default Bootstrap Style
+ *************************/
+/* matches Bootstrap .modal */
+.modal blockquote p {
+    font-size: 14px;
+}
+.modal#qscontent {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1050;
+    overflow: auto;
+    width: 560px !important;
+    height: auto;
+    margin: -250px 0 0 -280px;
+    padding: 15px;
+    text-align: left;
+    background-color: white;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+       -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: padding-box;
+       -moz-background-clip: padding-box;
+            background-clip: padding-box;
+}
+.yui-panel {
+    position: fixed !important;
+    top: 10% !important;
+    left: 50% !important;
+    /*font: "Helvetica Neue", Helvetica, Arial, sans-serif !important;*/
+    border-color: #999 !important;
+}
+/* matches Bootstrap .modal-backdrop */
+.mask {
+    background-color: #000 !important;
+    opacity: 0.8 !important;
+    filter: alpha(opacity=80) !important;
+}
+/* matches Bootstrap table */
+.yui-skin-sam .yui-dt table {
+    font-family: inherit !important;
+    border: 0 !important;
+    border-collapse: collapse !important;
+}
+/* matches Bootstrap .table th */
+.yui-skin-sam .yui-dt th {
+    padding: 8px !important;
+    border-top: 1px solid #ddd !important;
+    border-right: 0 !important;
+    background: transparent !important;
+}
+.yui-skin-sam .yui-dt th, .yui-skin-sam .yui-dt th a {
+    font-weight: bold !important;
+    color: inherit !important;
+    vertical-align: bottom !important;
+}
+/* matches Bootstrap .table th, .table td */
+.yui-skin-sam .yui-dt td {
+    padding: 8px !important;
+    border-top: 1px solid #ddd !important;
+    border-right: 0 !important;
+}
+.yui-skin-sam .yui-dt-liner {
+    padding: 0 !important;
+}
+.yui-skin-sam tr.yui-dt-odd {
+    background-color: transparent !important;
+}
+/* additional customer */
+#qscontent img {
+    max-width: none;
+}
+/* easyanswer */
+.yui-skin-sam .yui-panel-container {
+    position: fixed !important;
+    padding: 0 !important;
+}
+.yui-skin-sam tr.yui-dt-even {
+    background: transparent !important;
+}
+/* matches Bootstrap .pagination ul > li > a, .pagination ul > li > span */
+.yui-pg-previous, .yui-pg-page, .yui-pg-next,
+.yui-pg-previous > a, .yui-pg-page > a, .yui-pg-next > a {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none !important;
+    border: 1px solid #ddd;
+    border-left-width: 0;
+    background-color: #fff;
+}
+/* matches Bootstrap .pagination ul > li > a:hover, .pagination ul > li > a:focus */
+a.yui-pg-previous:hover, a.yui-pg-previous:focus,
+a.yui-pg-page:hover, a.yui-pg-page:focus,
+a.yui-pg-next:hover, a.yui-pg-next:focus {
+    background-color: #f5f5f5;
+}
+/* matches Bootstrap .pagination ul > li:first-child > a, .pagination ul > li:first-child > span */
+.yui-pg-previous {
+    border-left-width: 1px;
+    -webkit-border-radius: 4px 0 0 4px;
+       -moz-border-radius: 4px 0 0 4px;
+            border-radius: 4px 0 0 4px;
+}
+/* matches Bootstrap .pagination ul > li:last-child > a, .pagination ul > li:last-child > span */
+.yui-pg-next {
+    -webkit-border-radius: 0 4px 4px 0;
+       -moz-border-radius: 0 4px 4px 0;
+            border-radius: 0 4px 4px 0;
+}
+/* matches Bootstrap .modal-header */
+.yui-skin-sam .yui-panel .hd, .yui-skin-sam .yui-panel .bd, .yui-skin-sam .yui-panel .ft {
+    margin: 0 !important;
+    border: 0 !important;
+}
+.yui-skin-sam .yui-panel .hd {
+    padding: 9px 15px !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: #333 !important;
+    border-bottom: 1px solid #eee !important;
+    background: none !important;
+}
+.yui-skin-sam .yui-panel .bd, .yui-skin-sam .yui-panel .ft {
+    background: transparent !important;
+}
+.yui-panel .bd {
+    padding: 15px !important;
+}
+/* matches Bootstrap .close */
+.yui-skin-sam .container-close {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+}
+.modal .container-close {
+    position: absolute !important;
+    top: 9px !important;
+    right: 15px !important;
+}
+.yui-panel-container .container-close {
+    text-indent: 0 !important
+}
+/* feedback */
+/* matches Bootstrap .btn */
+.button-group button {
+    padding: 4px 14px !important;
+    font: 14px/20px "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    border: 1px solid #bbb !important;
+    border-bottom-color: #a2a2a2 !important;
+    background: #f5f5f5 !important;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e6e6e6)) !important;
+    background-image: -moz-linear-gradient(top, #fff, #e6e6e6) !important;
+    background-image: -o-linear-gradient(top, #fff, #e6e6e6) !important;
+    background-image: linear-gradient(to bottom, #fff, #e6e6e6) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
+}
+/* treeview */
+.ygtvfocus {
+    background-color: #f5f5f5 !important;
+}
+.ygtvfocus .ygtvlabel,.ygtvfocus .ygtvlabel:link,.ygtvfocus .ygtvlabel:visited,.ygtvfocus .ygtvlabel:hover {
+    background-color: #f5f5f5 !important;
+}
+.ygtvcontent {
+    cursor: pointer !important;
+}
+
+
+/*************************
+ * Global Elements
+ *************************/
+body {
+    position: relative;
+    padding-top: 99px;
+}
+ 
+/* layout */
+#parature_quicklink, #parature_footer {
+    display: none;
+}
+
+#parature_wrapper {
+    margin: 0 40px;
+}
+
+.column_two #treeView,
+.column_two #parature_wrapper {
+    margin: 0;
+}
+
+#parature_footer {
+    clear: both;
+}
+
+form#logoff {
+    margin: 0;
+}
+
+.mask {
+    z-index: 1025 !important;
+}
+
+/* navbar */
+body > .navbar {
+    font-size: 13px;
+}
+body > .navbar .brand {
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 20px;
+    float: right;
+    font-weight: bold;
+    color: #000;
+    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+    -webkit-transition: all .2s linear;
+       -moz-transition: all .2s linear;
+            transition: all .2s linear;
+}
+body > .navbar .brand:hover {
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+}
+
+/* sub navbar */
+.subnav {
+    width: 100%;
+    height: 36px;
+    background-color: #eeeeee; /* Old browsers */
+    background-repeat: repeat-x; /* Repeat the gradient */
+    background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%); /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Chrome 10+,Safari 5.1+ */
+    background-image: -ms-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* IE10+ */
+    background-image: -o-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Opera 11.10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+    background-image: linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* W3C */
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+}
+/* search */
+#parature_search {
+    z-index: 1010;
+    padding-top: 3px;
+    padding-left: 10px;
+	text-align: center;
+}
+#parature_search form,
+#parature_search .input-append {
+    display: inline;
+}
+#parature_search .searchLinks {
+    padding: 5px 10px;
+    font-size: .85em;
+    line-height: 30px;
+    text-transform: lowercase;
+}
+
+/* user information */
+.user {
+    float: right;
+    position: relative;
+}
+.user .dropdown-toggle {
+    display: block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.user .dropdown-toggle:hover {
+	text-decoration: none;
+}
+.user .caret {
+	margin-top: 8px;
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+.user .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+#welcome {
+    display: inline;
+    font-size: .85em;
+    color: #fff;
+}
+/* hide everything but the login identifer (default = email), if login identifier = username, swap #welcome_username with #welcome_email */
+#welcome_text, #welcome_firstname, #welcome_lastname, #welcome_username, #welcome_custnum, #mli_Exit {
+    display: none !important;
+}
+
+/* header */
+.hero-unit h1 {
+    margin-bottom: 10px;
+}
+
+/* footer */
+.footer {
+    margin-top: 25px;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+    background-color: #f5f5f5;
+}
+.footer p {
+    color: #777;
+}
+.footer #poweredby {
+    font-size: 0.9em;
+}
+
+/* lists */
+body.splash_asp .mostpopular li, body.splash_asp .mostrecent li,
+.module_item_list li,
+.module_folder_list li,
+.myrecenttopics li {
+    margin: 5px 0;
+}
+body.splash_asp .mostpopular li, body.splash_asp .mostrecent li,
+.module_folder_list li,
+.myrecenttopics li {
+    list-style: disc;
+}
+body.splash_asp .mostpopular .heading, body.splash_asp .mostrecent .heading,
+.module_folder_list .heading,
+#relatedTopics .sectionTitle,
+.alphabetHeader,
+.myrecenttopics .heading,
+.searchlegend .heading {
+    list-style: none;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+}
+body.splash_asp .mostpopular .heading, body.splash_asp .mostrecent .heading,
+.module_folder_list .heading,
+.myrecenttopics .heading,
+.searchlegend .heading {
+    margin-left: -20px;
+}
+
+/* forms */
+.hiddenfield {
+    display: none;
+}
+.formField {
+    position: relative;
+}
+.colon {
+    display: none;
+}
+.formReadonlyInput {
+    display: block;
+    padding-top: 5px;
+}
+label.checkbox {
+    cursor: pointer;
+}
+label.checkbox.internal {
+    cursor: default;
+}
+/* help bubble */
+.helpbubble {
+    position: absolute;
+    top: 0;
+    left: -10px;
+    display: inline-block;
+    padding: 8px 10px;
+    vertical-align: top;
+}
+div.helpbubble, a.helpbubble {
+    position: relative;
+    left: auto;
+    padding: 3px 10px;
+}
+.readonlyOnlyField .helpbubble {
+	position: relative;
+	left: auto;
+	vertical-align: baseline;
+}
+
+/* inline inputs -- need this since js can't add type attribute*/
+input.searchText,
+input[name="searchFor"],
+input[name="ticketNum"] {
+    padding: 4px 6px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px 0 0 4px;
+       -moz-border-radius: 4px 0 0 4px;
+            border-radius: 4px 0 0 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+       -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+       -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+         -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+            transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+/* channels */
+body.splash_asp #parature_content .row-fluid,
+body.srsplash_asp #parature_content .row-fluid,
+body.tsescalate_asp #parature_content .row-fluid {
+    margin-top: 30px;
+}
+body.splash_asp #parature_content .row-fluid:first-child, body.srsplash_asp #parature_content .row-fluid:first-child, body.tsescalate_asp #parature_content .row-fluid:first-child {
+    margin-top: 0;
+}
+.channels .splash_description {
+    display: block;
+}
+
+/* treeview */
+table.ygtvtable {
+    width: 100%;
+}
+.currentFolder .ygtvcontent {
+    background: #0088cc;
+}
+.currentFolder .ygtvcontent a {
+    color: #fff;
+    background: transparent;
+}
+/* for selected folders with sub folders */
+.currentFolder .ygtvchildren .ygtvcontent {
+    background: transparent;
+}
+.currentFolder .ygtvchildren .ygtvcontent a {
+    color: #0088cc;
+}
+.currentFolder .ygtvchildren .ygtvcontent a:hover {
+    color: #005580;
+}
+
+/* sidenav */
+.bs-docs-sidenav {
+    width: 228px;
+    margin: 30px 0 0;
+    padding: 0;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+       -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+            box-shadow: 0 1px 4px rgba(0,0,0,.065);
+}
+.bs-docs-sidenav > li > a {
+    display: block;
+    width: 190px \9;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+    border: 1px solid #e5e5e5;
+}
+.bs-docs-sidenav > li:first-child > a {
+    -webkit-border-radius: 6px 6px 0 0;
+       -moz-border-radius: 6px 6px 0 0;
+            border-radius: 6px 6px 0 0;
+}
+.bs-docs-sidenav > li:last-child > a {
+    -webkit-border-radius: 0 0 6px 6px;
+       -moz-border-radius: 0 0 6px 6px;
+            border-radius: 0 0 6px 6px;
+}
+.bs-docs-sidenav > li:only-child > a,
+.bs-docs-sidenav > li:first-child:last-child > a {
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+.bs-docs-sidenav > .active > a {
+    position: relative;
+    z-index: 2;
+    padding: 9px 15px;
+    border: 0;
+    text-shadow: 0 1px 0 rgba(0,0,0,.15);
+    -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+       -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+            box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
+}
+
+/* Chevrons */
+.bs-docs-sidenav .icon-chevron-right {
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+    opacity: .25;
+}
+.bs-docs-sidenav > li > a:hover {
+    background-color: #f5f5f5;
+}
+.bs-docs-sidenav a:hover .icon-chevron-right {
+    opacity: .5;
+}
+.bs-docs-sidenav .active .icon-chevron-right,
+.bs-docs-sidenav .active a:hover .icon-chevron-right {
+    background-image: url(../img/glyphicons-halflings-white.png);
+    opacity: 1;
+}
+.bs-docs-sidenav.affix {
+    top: 70px;
+}
+.bs-docs-sidenav.affix-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 270px;
+}
+
+/* tooltip */
+.helplayer {
+    z-index: 1025 !important;
+}
+.helplayer td {
+    color: #3a87ad;
+    border: 1px solid #bce8f1;
+    background: #d9edf7 !important;
+}
+
+
+/*************************
+ * Search Page
+ *************************/
+.advsearchhelp {
+    padding: 6px 6px 10px;
+    text-transform: lowercase;
+}
+
+/* seach results */
+body.tslist_asp .module_item_list {
+    margin: 0;
+}
+body.kbresult_asp .searchResults {
+    margin: 0;
+}
+body.kbresult_asp .searchResults li,
+.module_item_list li {
+    clear: both;
+    list-style: none;
+    margin: 20px 0 40px;
+}
+body.kbresult_asp .searchResults .articleText,
+body.kbresult_asp .downloadDescription {
+    display: block;
+}
+body.kbresult_asp .searchResults .articleLocation {
+    float: right;
+}
+
+
+/*************************
+ * Login Page
+ *************************/
+body.mylogin_asp .formheader {
+    display: none;
+}
+body.mylogin_asp #login > .formheader,
+body.mylogin_asp .ssologin > .formheader:first-child {
+    display: none;
+}
+body.mylogin_asp #login .formText {
+    margin-left: 180px;
+    text-transform: lowercase;
+}
+body.mylogin_asp .ssologin {
+    margin-bottom: 30px;
+}
+body.mylogin_asp .ssologin .formheader {
+    font-weight: bold;
+}
+body.mylogin_asp .ssologin ul {
+    margin: 0;
+}
+body.mylogin_asp .ssologin li {
+    list-style: none;
+    margin: 10px 7px 30px;
+}
+body.mylogin_asp .ssologin li:first-child {
+    margin-left: 0;
+}
+body.mylogin_asp .ssologin li:last-child {
+    margin-right: 0;
+}
+body.mylogin_asp #signupform {
+    clear: both;
+}
+body.mylogin_asp #signupform .formheader {
+    display: block;
+}
+body.mylogin_asp #signupform .formheader:first-child {
+    font-weight: bold;
+}
+
+
+/*************************
+ * Home Page
+ *************************/
+body.splash_asp #kbGlance {
+    margin-top: 50px;
+}
+body.splash_asp .mostrecent li {
+    clear: both;
+}
+body.splash_asp .mostrecent .item {
+    float: right;
+}
+body.splash_asp #myrecent {
+    clear: both;
+    display: none;
+}
+
+
+/*************************
+ * Knowledgebase Page
+ *************************/
+body.kbanswer_asp #articleAnswer {
+    clear: both;
+}
+body.kbanswer_asp #kbutility li, body.kbanswer_asp ul.topcInformationData li, body.kbanswer_asp ul.relatedTopics li {
+    list-style: none;
+}
+body.kbanswer_asp #kbutility #utility{
+    float: right;
+}
+body.kbanswer_asp #subscriptionContent {
+    clear: both;
+    margin: 0 auto 20px;
+    min-width: 25%;
+}
+body.kbanswer_asp #subscriptionContent legend {
+    display: none;
+}
+body.kbanswer_asp #subscriptionContent .formheader {
+    display: block;
+}
+body.kbanswer_asp #subscriptionContent .contentBody {
+    display: inline-block;
+    margin-top: 5px;
+}
+body.kbanswer_asp #topicInformation .sectionTitle {
+    display: none;
+}
+body.kbanswer_asp ul.topcInformationData,
+body.kbanswer_asp ul.relatedTopics {
+    margin: 0;
+}
+body.kbanswer_asp #ratingContent {
+    margin: 15px;
+}
+body.kbanswer_asp #ratingContent img {
+    margin: 0 10px;
+}
+body.kbanswer_asp #ratingContent .formField {
+    margin-bottom: 15px;
+}
+body.kbanswer_asp #ratingContent .formheader {
+    display: block;
+    margin: 10px 0;
+}
+body.kbanswer_asp #relatedTopics {
+    clear: both;
+}
+body.kbanswer_asp ul.relatedTopics li {
+  margin: 10px 0;  
+}
+
+
+/*************************
+ * Email Article Page
+ *************************/
+.contentHead2 {
+    font-weight: bold;
+}
+.contentCaption {
+    display: block;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    text-align: right;
+    cursor: pointer;
+}
+.contentBody[type="text"] {
+    height: 30px;
+}
+.contentBody[type="text"],
+textarea {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.contentBody[type="button"] {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
+    background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
+    background-image: -o-linear-gradient(top,#fff,#e6e6e6);
+    background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+    background-repeat: repeat-x;
+    border: 1px solid #ccc;
+    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    border-bottom-color: #b3b3b3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+.contentBody[type="button"]:hover,
+.contentBody[type="button"]:focus {
+    color: #333;
+    text-decoration: none;
+    background-color: #e6e6e6;
+    background-position: 0 -15px;
+    -webkit-transition: background-position .1s linear;
+    -moz-transition: background-position .1s linear;
+    -o-transition: background-position .1s linear;
+    transition: background-position .1s linear;
+}
+
+
+/*************************
+ * Troubleshooter Page
+ *************************/
+/* Step 3 */
+body.tsresult_asp label.searchFor {
+    display: none;
+}
+body.tsresult_asp #answerAdvancedSearch {
+    margin-top: 15px;
+}
+body.tsresult_asp #buttonContainer2 {
+    margin-top: 50px;
+}
+body.tsresult_asp .questionAnswerGroup {
+    margin: 15px 0;
+}
+body.tsresult_asp .expandIcon {
+    margin-right: 5px;
+}
+body.tsresult_asp .tsResultQuestion {
+    vertical-align: middle;
+}
+body.tsresult_asp .viewKbLink {
+    margin-left: 15px;
+    text-transform: lowercase;
+}
+body.tsresult_asp .searchResultAnswer {
+    margin-left: 15px;
+}
+/* Step 4 */
+body.tsescalate_asp .supportResourcesTitle {
+    display: none;
+}
+ 
+ 
+/*************************
+ * Download Page
+ *************************/
+.dllink {
+    clear: both;
+}
+.dllink .subfolder {
+    float: right;
+}
+.dllink .desc {
+    display: block;
+    margin-left: 20px;
+}
+
+
+/*************************
+ * New Ticket Page
+ *************************/
+#upFrame {
+    display: none;
+}
+/* Submission Method */
+body.ticketnew_asp #ticketSubmissionMethodSelection {
+    margin: 0 auto;
+}
+body.ticketnew_asp #ticketSubmissionMethodSelection .formField {
+    clear: both;
+    padding-top: 50px;
+}
+body.ticketnew_asp #ticketSubmissionMethodSelection .formField .cookie {
+    float: right;
+}
+body.ticketnew_asp #ticketSubmissionMethodSelection .formField .forminput {
+    margin: 0 10px;
+}
+body.ticketnew_asp #ticketSubmissionMethods {
+    margin: 0;
+}
+body.ticketnew_asp #ticketSubmissionMethods li {
+    list-style: none;
+    float: left;
+}
+/* new ticket */
+body.ticketnewwizard_asp .CustCClist > input,
+body.ticketview_asp .CustCClist > input {
+    margin: 25px;
+}
+body.ticketnewwizard_asp .attachment > legend {
+    display: none;
+}
+body.ticketnewwizard_asp #attachUI {
+    margin: 20px 0;
+}
+body.ticketnewwizard_asp #legend {
+    margin-top: 50px;
+}
+body.ticketnewwizard_asp .required {
+    color: #b94a48;
+}
+/* additional customer */
+#quickselect {
+    z-index: 9999 !important;
+}
+#qscontent .contentHead {
+    display: block;
+    font-weight: bold;
+}
+#qscontent .#searchType {
+    float: left;
+    margin-left: 30px;
+    width: auto;
+}
+#qsloading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+body.ticketnewwizard_asp #additionalContactInfo {
+    margin-top: 0;
+}
+body.ticketnewwizard_asp .ticketdetails {
+    clear: both;
+    margin-top: 25px;
+}
+body.ticketnewwizard_asp #configFields > .formField {
+    clear: both;
+    margin-top: 25px;
+}
+body.ticketnewwizard_asp #buttonContainer {
+    margin-top: 25px;
+}
+/* easy answer - classic mode only */
+body.ticketnewwizard_asp .easyAnswerHeader {
+    font-weight: bold;
+    font-size: 18px;
+}
+body.ticketnewwizard_asp .easyAnswerInstructions {
+    margin: 1em 0;
+}
+body.ticketnewwizard_asp .easyAnswer .yui-dt th {
+    background: #eee !important;
+}
+body.ticketnewwizard_asp .yui-dt-data tr {
+    cursor: pointer;
+}
+body.ticketnewwizard_asp #easyAnswerSearchResultTitle {
+    font-weight: bold;
+}
+body.ticketnewwizard_asp .easyAnswerResultHighlight {
+    padding: 0 3px;
+    color: #fff;
+    background: #0088cc;
+}
+body.ticketnewwizard_asp .easyAnswerResultsBox .yui-dt-paginator:first-child {
+    display: none;
+}
+body.ticketnewwizard_asp .easyAnswerPagination {
+    font-size: 0;
+    text-align: right;
+}
+body.ticketnewwizard_asp #btn_answerFound {
+    margin-right: 10px;
+}
+body.ticketnewwizard_asp #easyAnswerPreviewPanel_c {
+    z-index: 1040 !important;
+    top: 10% !important;
+    left: 50% !important;
+}
+body.ticketnewwizard_asp #easyAnswerPreviewPanel {
+    z-index: 1050 !important;
+    width: 560px !important;
+    /*overflow: hidden;*/
+    /*height: auto !important;*/
+}
+body.ticketnewwizard_asp .bd {
+    max-height: none;
+}
+body.ticketnewwizard_asp .bd > blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body.ticketnewwizard_asp .ft {
+    /*display: none;*/
+}
+body.ticketnewwizard_asp .underlay {
+    display: none;
+}
+
+
+/*************************
+ * Feedback Page
+ *************************/
+body.email_asp .maxchars,
+body.feedback_asp .maxchars {
+    display: block;
+}
+body.feedback_asp .formButton .formlabel {
+    display: none;
+}
+
+
+/*************************
+ * My History
+ *************************/
+body.myhistory_asp .myrecentrequests {
+    display: none;
+}
+
+
+/*************************
+ * My Tickets
+ *************************/
+#filterS, .formField.remember {
+    clear: both;
+}
+#filterS, #filterO, .filterAcct {
+    float: left;
+    margin-top: 20px;
+}
+#filterO, .filterAcct {
+    margin-left: 20px;
+}
+body.mytickets_asp legend {
+    margin-bottom: 0;
+}
+
+/* Ticket Details */
+body.ticketview_asp .feedback .yui-panel-container {
+    z-index: 1030 !important;
+}
+body.ticketview_asp #ticketFeedback legend {
+    display: none;
+}
+body.ticketview_asp .feedbackQuestion {
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+}
+body.ticketview_asp #buttonContainer {
+    /*margin: 20px 0;*/
+}
+body.ticketview_asp #options_row {
+    display: none;
+}
+body.ticketview_asp .CustCClist a {
+    margin-left: 10px;
+}
+/* feedback */
+body.ticketview_asp .feedbackQuestionText {
+    margin-bottom: 10px;
+}
+body.ticketview_asp .feedbackRatingImageSet {
+    margin-bottom: 20px;
+}
+body.ticketview_asp .feedbackRatingImageSet img {
+    cursor: pointer;
+}
+
+
+/*************************
+ * My Emails
+ *************************/
+body.myemails_asp legend {
+    margin-bottom: 0;
+}
+body.myemaildetails_asp .formheader {
+    display: none;
+}
+
+/*************************
+ * Responsive
+ *************************/
+@media (max-width: 480px) {
+    /* matches Bootstrap .modal */
+    .yui-panel {
+        top: 10px !important;
+        left: 10px !important;
+    }
+    /* matches Bootstrap .modal-header .close */
+    .yui-panel .container-close {
+        padding: 10px !important;
+        margin: -10px !important;
+    }
+    
+    /* form */
+    .helpbubble {
+        display: none;
+    }
+    
+    /* Login Page */
+    body.mylogin_asp #login .formText {
+        margin: 0;
+    }
+}
+
+/* Tablet */
+@media (max-width: 767px) { 
+    /* navbar */
+    #welcome {
+        padding: 0;
+    }
+    
+    /* sub navbar */
+    #parature_navigation .submenu {
+        display: none;
+    }
+    
+    /* search */
+    #parature_search {
+        position: static;
+    }
+    #parature_search .searchLinks {
+        display: none;
+    }
+    
+    /* footer */
+    footer {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    
+    /* forms */
+    input[type="text"],
+    textarea {
+        width: 100%;
+    }
+    
+    /* channels */
+    body.splash_asp #parature_content .row-fluid,
+    body.srsplash_asp #parature_content .row-fluid,
+    body.tsescalate_asp #parature_content .row-fluid {
+        margin-top: 0;
+    }
+    
+    /* sidenav */
+    .bs-docs-sidenav {
+        width: auto;
+        margin-bottom: 20px;
+    }
+    .bs-docs-sidenav.affix {
+        position: static;
+        width: auto;
+        top: 0;
+    }
+    
+    /* modal */
+    body.ticketview_asp #feebackLayer {
+        width: auto !important;
+    }
+    
+    /* Home Page */
+    body.splash_asp .leftcolumn,
+    body.splash_asp #kbGlance {
+        display:none;
+    }
+    
+    /* Knowledgebase Page */
+    body.kbsplash_asp .rightcolumn {
+        display: none;
+    }
+    body.kblist_asp .leftcolumn,
+    body.kbanswer_asp .leftcolumn {
+        display:none;
+    }
+    
+    /* Download Page */
+    body.dlsplash_asp .rightcolumn {
+        display: none;
+    }
+    body.dllist_asp .leftcolumn {
+        display: none;
+    }
+}
+
+/* Tablet to desktop */
+@media (min-width: 768px) and (max-width: 980px) {
+    /* Adjust sidenav width */
+    .bs-docs-sidenav {
+        width: 166px;
+        margin-top: 20px;
+    }
+    .bs-docs-sidenav.affix {
+        top: 0;
+    }
+}
+
+@media (max-width: 979px) {
+    body {
+        padding-top: 0;
+    }
+    
+    /* navbar */
+    .navbar {
+        margin-bottom: 0;
+    }
+    .user {
+        float: none;
+    }
+    #welcome {
+        padding: 10px 15px;
+    }
+    
+    /* form */
+    .btn:first-child {
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 980px) {
+    .navbar {
+        margin-bottom: 0;
+    }
+    
+    /* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
+    .subnav-fixed {
+        z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+        border-color: #d5d5d5;
+        border-width: 0 0 1px; /* drop the border on the fixed edges */
+        -webkit-border-radius: 0;
+           -moz-border-radius: 0;
+                border-radius: 0;
+        -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+           -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+                box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); /* IE6-9 */
+    }
+    
+    /* When affixed, space properly */
+    .bs-docs-sidenav {
+        top: 0;
+        margin-top: 30px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        margin: 0 15px;
+    }
+    
+    .column_two #treeView,
+    #parature_wrapper, .column_two #parature_wrapper    {
+        margin: 0;
+        padding: 0 15px;
+    }
+    
+    /* channels */
+    .channels .splash_description {
+        margin-bottom: 15px;
+    }
+}
+
+/* Desktop large */
+@media (min-width: 1200px) {
+    .bs-docs-sidenav {
+        width: 258px;
+    }
+    .bs-docs-sidenav > li > a {
+        width: 230px \9; /* Override the previous IE8-9 hack */
+    }
+}

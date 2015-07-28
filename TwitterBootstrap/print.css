@@ -1,0 +1,52 @@
+/*
+ * Parature Portal Template - Bootstrap Theme v0.9.4
+ * compatible with the September 2013 release
+ *
+ * print specific styles
+ *
+ * Updated 06 May 2013
+ */
+
+ 
+/*************************
+ * Global
+ *************************/
+/* navbar */
+.navbar .btn-navbar {
+    display: none;
+}
+
+/* search */
+.subnav {
+    display: none;
+}
+
+/* header */
+.hero-unit {
+    margin-bottom: 0;
+    padding: 0 0 0 20px;
+}
+.hero-unit h1 {
+    font-size: 24px;
+}
+
+
+/*************************
+ * Knowledgebase Page
+ *************************/
+#kbutility,
+#voteBox {
+    display: none;
+}
+
+
+/*************************
+ * My Tickets
+ *************************/
+/* Ticket Details */
+body.ticketview_asp #parature_search {
+    display: none;
+}
+body.ticketview_asp .leftcolumn .nav-list {
+    display: none;
+}

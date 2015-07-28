@@ -1,0 +1,956 @@
+        </div>
+    </div>
+</div>
+
+<div id="footer" class="footer">
+    <div class="container-fluid">
+        <p>Company Name</p>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+    // hide portal until all changes have been applied
+    $('body').hide();
+    
+    function addCustomer() {
+        if($('#qscontent > table').length) {
+            $('#qsfilter .contentHead').after('<div class="input-prepend input-append"/>');
+            $('#qsfilter .input-append').append($('#searchType').addClass('span3')).append($('#qsfilter #searchQuery')).append($('#qsfilter #searchButton')).append($('#qsfilter #resetButton'));
+            
+            var tableCheck = setInterval(function() {
+                addBootstrapTables('#qslist table', 'striped');
+            }, 500);
+            
+            addBootstrapButtons('#qscontent input[type="submit"]');
+            addBootstrapButtons('#qscontent #cancel a');
+            
+            // modifications complete, show modal
+            $('#qscontent').show();
+        }
+    };
+    
+    function twoColumnLayout(page) {
+        if(page == 'ticketdetails') {
+            $('body').addClass('column_two_even');
+            $('.leftcolumn').addClass('span3');
+            $('.rightcolumn').addClass('span9');
+        } else {
+            $('body').addClass('column_two');
+            $('.leftcolumn').addClass('span3');
+            $('.rightcolumn').addClass('span9');
+        }
+    };
+    
+    function resizeFormInputs(element, type, width, height) {
+        if(type == 'select') {
+            if(width) {
+                $(element).addClass(width);
+            }
+            if(height) {
+                $(element).attr('size', height);
+            }
+        } else if(type == 'textarea') {
+            if(width) {
+                $(element).addClass(width);
+            }
+            if(height) {
+                $(element).attr('rows', height);
+            }
+        }
+    };
+    
+    function displayChannels(element, channel) {
+        $(element).wrap('<div class="channels"/>').contents().unwrap();
+        var numChannels = $(channel).length;
+        $(channel).each(function(index) {
+            var splashID = $(this).attr('id');
+            if(numChannels < 3) {
+                var sizeChannels = 12 / numChannels;
+                $(this).contents().unwrap().wrapAll('<div id="' + splashID + '" class="span' + sizeChannels + '"/>');
+            } else {
+                if(index == 0 || index % 3 == 0) {
+                    $(this).wrap('<div class="row-fluid"/>');
+                }
+                $(this).appendTo('#parature_content .row-fluid:last').contents().unwrap().wrapAll('<div id="' + splashID + '" class="span4"/>');
+            }
+        });
+    };
+    
+    function addBootstrapTables(element, style, convert) {
+        if(convert) {
+            $(element).prepend('<thead/>').find('tr:first').appendTo($(element).find('thead'));
+        }
+        $(element).addClass(function() {
+            var newClass = 'table';
+            if(style) {
+                return newClass = newClass + ' table-' + style;
+            } else {
+                return newClass;
+            }
+        });
+    };
+
+    function addBootstrapForm(form, field, label, input, type) {
+        if(type == 'horizontal') {
+            $(form).addClass('form-horizontal');
+        }
+        $(field).addClass('control-group');
+        $(label).addClass('control-label');
+        $(input).addClass('controls');
+    };
+    
+    function addBootstrapFormInputs(element, type, section) {
+        if(type == 'checkbox') {
+            $(element).wrap('<label class="checkbox"/>');
+        } else if(type == 'multicheckbox') {
+            $(element).each(function() {
+                $(this).after('<label class="checkbox"/>');
+                $(section + ' label.checkbox:last').append($(this).prev()).append($(this).contents().unwrap());
+            });
+        } else if(type == 'radio') {
+            $(element).each(function() {
+                $(this).after('<label class="radio"/>');
+                $('label.radio:last').append($(this).prev()).append($(this).contents().unwrap());
+            });
+        }
+    };
+    
+    function addBootstrapFormPrependAppend(element, input, button, type) {
+        var append = 'input-append';
+        var prepend = 'input-prepend';
+        if(type == 'append') {
+            $(element).prepend('<div class="' + append + '"/>');
+            $(element + ' .' + append).append($(input)).append($(button));
+        }
+    };
+    
+    function addBootstrapButtons(element, size, style) {
+        $(element).addClass(function() {
+            var newClass = 'btn';
+            if(size) {
+                newClass = newClass + ' btn-' + size;
+            }
+            if(style) {
+                newClass = newClass + ' btn-' + style;
+            }
+            return newClass;
+        });
+    };
+    
+    function addBootstrapImages(element, icon) {
+      var text = $(element).text();
+      $(element).html('<i class="icon-' + icon + '"/>' + text);
+    };
+    
+    function addBootstrapNav(element, style) {
+        $(element).addClass(function() {
+            var newClass = 'nav';
+            if(style) {
+                return newClass + ' ' + style;
+            } else {
+                return newClass;
+            }
+        });
+    };
+    
+    function addBootstrapBreadcrumbs(element, page) {
+        $(element).contents().unwrap().wrapAll('<ul id="breadcrumbs" class="breadcrumb"/>');
+        $(page).each(function(index) {
+            if(index < ($(page).length)) {
+                $(this).append('<span class="divider">/</span>');
+                $(this).contents().unwrap().wrapAll('<li/>');
+            } else {
+                $(this).contents().unwrap().wrapAll('<li class="active"/>').contents().unwrap();
+            }
+        });
+    };
+    
+    function addBootstrapPagination(element) {
+        var pageID = $(this).attr('id'),
+            pageClass = $(this).attr('class');
+        $(this).contents().unwrap().wrapAll('<li id="' + pageID + '" class="' + pageClass + '"/>');
+    };
+    
+    function addBootstrapLabelsBadges(element, type, style) {
+        $(element).addClass(function() {
+            if(style) {
+                return type + ' ' + style;
+            } else {
+                return type;
+            }
+        });
+    };
+    
+    $(function() {
+        /*************************
+         * Global - Top NavBar
+         *************************/
+        // main navigation
+        $('ul.mainmenu').prependTo('.navbar-fixed-top .nav-collapse');
+        addBootstrapNav('ul.mainmenu');
+        
+        // subnav
+        $('ul.submenu').addClass('dropdown-menu').unwrap().appendTo('#nav');
+        // rearrange items in sub navbar
+        $('#mli_myChats').insertAfter('#mli_myTickets');
+        $('#mli_myEmails').insertAfter('#mli_myChats');
+        
+        // clone subnav to each mainmenu
+        $('ul.mainmenu > li').each(function() {
+            var tab = $(this).attr('id');
+            if(tab == 'mli_knowledge_main') {
+                $(this).addClass('dropdown').find('a').addClass('dropdown-toggle').attr('data-toggle', 'dropdown').append('<b class="caret"/>');
+                $('ul.submenu').clone().appendTo($(this));
+                $(this).find('#mli_ticket').remove();
+                $(this).find('#mli_email').remove();
+                $(this).find('#mli_feedback').remove();
+                $(this).find('#mli_contactUs').remove();
+                $(this).find('#mli_realtime').remove();
+                $(this).find('#mli_forum').remove();
+                $(this).find('#mli_myHistory').remove();
+                $(this).find('#mli_myProfile').remove();
+                $(this).find('#mli_myTickets').remove();
+                $(this).find('#mli_myProducts').remove();
+                $(this).find('#mli_myEmails').remove();
+                $(this).find('#mli_myChats').remove();
+                $(this).find('#mli_mySubscriptions').remove();
+            } else if(tab == 'mli_SRSplash') {
+                $(this).addClass('dropdown').find('a').addClass('dropdown-toggle').attr('data-toggle', 'dropdown').append('<b class="caret"/>');
+                $('ul.submenu').clone().appendTo($(this));
+                $(this).find('#mli_knowledge').remove();
+                $(this).find('#mli_download').remove();
+                $(this).find('#mli_glossary').remove();
+                $(this).find('#mli_troubleshooter').remove();
+                $(this).find('#mli_myHistory').remove();
+                $(this).find('#mli_myProfile').remove();
+                $(this).find('#mli_myTickets').remove();
+                $(this).find('#mli_myProducts').remove();
+                $(this).find('#mli_myEmails').remove();
+                $(this).find('#mli_myChats').remove();
+                $(this).find('#mli_mySubscriptions').remove();
+            } else if(tab == 'mli_my') {
+                $(this).addClass('dropdown').find('a').addClass('dropdown-toggle').attr('data-toggle', 'dropdown').append('<b class="caret"/>');
+                $('#nav > ul.submenu').appendTo('#mli_my');
+                $(this).find('#mli_knowledge').remove();
+                $(this).find('#mli_download').remove();
+                $(this).find('#mli_glossary').remove();
+                $(this).find('#mli_troubleshooter').remove();
+                $(this).find('#mli_ticket').remove();
+                $(this).find('#mli_email').remove();
+                $(this).find('#mli_feedback').remove();
+                $(this).find('#mli_contactUs').remove();
+                $(this).find('#mli_realtime').remove();
+                $(this).find('#mli_forum').remove();
+            }
+        });
+        
+        // user menu
+        $('.user').append($('ul.utilitymenu'));
+        $('.user .dropdown-toggle .caret').before($('#welcome'));
+        $('ul.utilitymenu').addClass('dropdown-menu');
+        
+        /*************************
+         * Global - Sub NavBar
+         *************************/
+        // search
+        $('.subnav').prepend($('#parature_search'));
+        addBootstrapFormPrependAppend('#search', '#search .searchText', '#search .button', 'append');
+        $('#parature_search .searchText').addClass('span6');
+        
+        
+        /*************************
+         * Global - Footer
+         *************************/
+        $('#footer .container-fluid').append($('#poweredby'));
+        
+        
+        /*************************
+         * Global - Buttons
+         *************************/
+        addBootstrapButtons('input.formButton');
+        addBootstrapButtons('input.button');
+        addBootstrapButtons('.formButton .forminput input');
+        
+        
+        /*************************
+         * Global - Folder Tree
+         *************************/
+        if($('#treeView').length) {
+            twoColumnLayout();
+            $('#treeView').appendTo('.container-fluid .span3');
+            
+            // TODO: need to fix selected folder if it has subfolders
+            // detect selected folder in KB Tree
+            $('.ygtvchildren .ygtvitem').each(function() {
+                if($('a.ygtvlabel',this).attr('href') == window.location.href) {
+                    $(this).addClass('currentFolder');
+                }
+            });
+            
+            $('#parature_wrapper').appendTo('.container-fluid .span9');
+        }
+        
+        
+        /*************************
+         * Login Page
+         *************************/
+        if(window.location.pathname.indexOf('mylogin.asp') != -1) {
+            if($('#login2').length) {
+                $('h1.title').text($('.formheader').text());
+            }
+            $('.parature_page_content p:first').contents().unwrap().wrapAll('<span class="titledesc"/>');
+            
+            $('.buttonContainer > input').wrap('<div class="forminput"/>');
+            
+            $('#login').before('<div class="row-fluid"><div class="span8"/><div class="span4 well"/></div>');
+            $('.parature_page_content .row-fluid .span8').append($('#login'));
+            if($('.ssologin').length) {
+                $('.parature_page_content .row-fluid .span4').append($('.ssologin'));
+                $('.ssologin ul').before($('.parature_page_content > .formheader'));
+            }
+            $('.parature_page_content .row-fluid .span4').append($('#signupform'));
+            
+            var loginMode = ($('#login').length) ? '#login' : '#login2';
+            addBootstrapForm(loginMode, loginMode + ' > div', loginMode + ' > div > .formlabel', loginMode + ' > div > .forminput', 'horizontal');
+            addBootstrapButtons(loginMode + ' .buttonContainer input', 'large', 'primary');
+            addBootstrapButtons('.ssologin a', null, 'info');
+            
+            // Sign Up
+            if(window.location.search.indexOf('task=signupform') != -1) {
+                addBootstrapForm('#signup', '#signup .formField', '#signup .formlabel', '#signup .forminput', 'horizontal');
+
+            }
+            // Forgot Password
+            else if(window.location.search.indexOf('task=forgotPassword') != -1) {
+                addBootstrapForm('#forgot', '#forgot .formField', '#forgot .formlabel', '#forgot .forminput', 'horizontal');
+            }
+        }
+        
+        
+        /*************************
+         * Home Page
+         *************************/
+        else if($('body.splash_asp').length) {
+            displayChannels('#parature_wrapper .splash', '.splash_item');
+        
+            $('ol.mostpopular').wrap('<div class="span6 well"/>');
+            $('ol.mostrecent').wrap('<div class="span6 well"/>');
+            addBootstrapLabelsBadges('ol.mostrecent .item', 'label', 'label-info');
+            
+            //setEqualHeight($('div#kbGlance > div > ol')); // not working as expected
+        }
+        
+        
+        /*************************
+         * Knowledgebase Page
+         *************************/
+        else if(window.location.pathname.indexOf('KBSplash.asp') != -1) {
+            $('.module_folder_list').wrap('<div class="well"/>');
+            addBootstrapLabelsBadges('.subfolder', 'label', 'label-info');
+        } else if($('body.kblist_asp').length) {
+            addBootstrapBreadcrumbs('#breadcrumbs', 'span.breadcrumb');
+            
+            // related articles
+            $('.module_folder_list').wrap('<div class="well"/>');
+            addBootstrapLabelsBadges('#treeView .subfolder', 'label', 'label-info');
+        } else if($('body.kbanswer_asp').length) {
+            $('#parature_content').append('<div class="row-fluid"><div class="span9"/><div class="span3"/></div>');
+            
+            // breadcrumbs
+            $('#breadcrumbs').insertBefore('#parature_content .row-fluid');
+            addBootstrapBreadcrumbs('#breadcrumbs', 'span.breadcrumb');
+            
+            $('#parature_content .span9').append($('#kbutility')).append($('#subscriptionContent').addClass('well')).append($('#articleAnswer')).append($('#ratingContent'));
+            $('#parature_content .span3').append($('#topicInformation').addClass('well')).append($('#productBox'));
+            $('#parature_content .row-fluid').after($('#relatedTopics').addClass('well'));
+            $('#discussTopic').insertAfter('#emailKb');
+            $('#discussTopic').after($('#subscribe')).after($('#unsubscribe'));
+            addBootstrapNav('#utility', 'nav-pills');
+            
+            // subscribe
+            $('.buttonContainer > input').wrap('<div class="forminput"/>');
+            addBootstrapForm('#subscription', '#subscription .formField', '#subscription .formlabel', '#subscription .forminput', 'horizontal');
+            
+            // rating
+            $('#ratingContent #voteBox form').addClass('form-inline').prepend($('#imgTumbDown')).prepend($('#imgTumbUp')).prepend($('.voteText'));
+            addBootstrapButtons('#ratingContent .formheader a');
+            addBootstrapButtons('#ratingContent .buttonContainer #submitRatingCommentButton', 'primary');
+            addBootstrapButtons('input#voteBoxSubmit');
+        }
+        
+        
+        /*************************
+         * Glossary Page
+         *************************/
+        else if(window.location.pathname.indexOf('glossary.asp') != -1) {
+            addBootstrapNav('#glossary_alphabets', 'nav-pills');
+        }
+        
+        
+        /*************************
+         * Download Page
+         *************************/
+        else if(window.location.pathname.indexOf('DLSplash.asp') != -1) {
+            $('.module_folder_list').wrap('<div class="well"/>');
+            addBootstrapLabelsBadges('.subfolder', 'label', 'label-info');
+        } else if(window.location.pathname.indexOf('DLList.asp') != -1) {
+            addBootstrapBreadcrumbs('#breadcrumbs', 'span.breadcrumb');
+            
+            $('.module_folder_list').wrap('<div class="well"/>');
+            addBootstrapLabelsBadges('.subfolder', 'label', 'label-info');
+        }
+        
+        
+        /*************************
+         * Troubleshooter Page
+         *************************/
+        else if(window.location.pathname.indexOf('TSFolder.asp') != -1) {
+            resizeFormInputs('.folderID select', 'select', 'span6', '10');
+        } else if(window.location.pathname.indexOf('TSResult.asp') != -1) {
+            // search
+            $('#tksearch').prepend('<div class="input-append"/>');
+            $('#tksearch .input-append').append($('.searchFor').parent()).append($('#buttonContainer1'));
+            $('#tksearch .input-append .formField').contents().unwrap();
+            $('div.searchFor').contents().unwrap();
+            $('input[name="searchFor"]').addClass('span12');
+            $('#buttonContainer1').contents().unwrap();
+            $('#answerAdvancedSearch').addClass('well');
+            
+            $('span.radio').contents().unwrap();
+            $('.radioOption').each(function() {
+                $(this).contents().unwrap().wrapAll('<label class="radio"></label>');
+            });
+        } else if(window.location.pathname.indexOf('TSEscalate.asp') != -1) {
+            displayChannels('#tsEscalated .splash', '.splash_item');
+        }
+        
+        
+        /*************************
+         * Request Support Page
+         *************************/
+        else if(window.location.pathname.indexOf('SRSplash.asp') != -1) {
+            displayChannels('.srsplash_asp .splash', '.splash_item');
+        }
+        
+        
+        /*************************
+         * New Ticket Page
+         *************************/
+        else if(window.location.pathname.indexOf('ticketNew.asp') != -1) {
+            addBootstrapButtons('#ticketSubmissionMethods li a', 'large');
+            $('#ticketSubmissionMethods li').each(function() {
+                $(this).addClass('span6');
+            });
+        }
+        // ticket submit method
+        else if(window.location.pathname.indexOf('ticketnewwizard.asp') != -1) {
+            // customer & additional contact
+            $('.customerinfo').before('<div class="row-fluid"/>');
+            $('#configFields .row-fluid').append($('.customerinfo').addClass('span6')).append($('#additionalContactInfo').addClass('span6'));
+            addBootstrapButtons('#changeContactLink a', null, 'primary');
+            addBootstrapButtons('#removeContactLink a');
+        
+            // horizontal form
+            addBootstrapForm('.span6', '.span6 .formField', '.span6 .formlabel', '.span6 .forminput', 'horizontal');
+            $('#rememberContactUI').contents().unwrap().wrapAll('<label class="checkbox"/>');
+            addBootstrapButtons('input[type="button"]');
+            $('#buttonContainer').addClass('control-group');
+            
+            addBootstrapButtons('#next', null, 'primary');
+            
+            // additional customer selector
+            $('#qscontent').addClass('modal');
+            $('#changeContactLink').click(function() {
+                // hide modal until all changes have been applied
+                $('#qscontent').hide();
+                
+                var addCustomerCheck = setInterval(function() {
+                    if($('#qscontent > table').length) {
+                        clearInterval(addCustomerCheck);
+                        
+                        $('#qsfilter .contentHead').after('<div class="input-prepend input-append"/>');
+                        $('#qsfilter .input-append').append($('#searchType').addClass('span3')).append($('#qsfilter #searchQuery')).append($('#qsfilter #searchButton')).append($('#qsfilter #resetButton'));
+                        
+                        // TODO: hide the table until modifications are made
+                        var tableCheck = setInterval(function() {
+                            addBootstrapTables('#qslist table', 'striped');
+                        }, 500);
+                        
+                        addBootstrapButtons('#qscontent input[type="submit"]');
+                        addBootstrapButtons('#qscontent #cancel a');
+                        
+                        // modifications complete, show modal
+                        $('#qscontent').show();
+                    }
+                }, 500);
+            });
+            
+            // wizard mode
+            // step 2
+            if(window.location.search.indexOf('wizard_step=2') != -1) {
+                // apply Bootstrap style
+                addBootstrapForm('#configFields', '#configFields div.formField', '#configFields div.formField .formlabel', '#configFields div.formField .forminput', 'horizontal');
+                // single checkbox fields
+                addBootstrapFormInputs('#configFields div[class*=CHECKBOX_] input[type="checkbox"]', 'checkbox');
+                // multi checkbox fields
+                addBootstrapFormInputs('#configFields div[class*=CHECKBOXMULTIPLE] .radio', 'multicheckbox');
+                // radio fields
+                addBootstrapFormInputs('#configFields div[class*=RADIO] .radio', 'radio');
+                // buttons
+                $('#buttonContainer').wrapInner('<div class="forminput controls"/>');
+            }
+            // step 3
+            else if(window.location.search.indexOf('wizard_step=3') != -1) {
+            }
+            // step 4
+            else if((window.location.search.indexOf('wizard_step=4') != -1) || (window.location.search.indexOf('style=classic') != -1)) {
+                resizeFormInputs('#CustCClist', 'textarea', 'span4', '6');
+                resizeFormInputs('#customerlist', 'select', 'span4');
+            
+                // email notification checkboxes
+                $('label.internal').addClass('checkbox').append($('div.internal > input'));
+                $('label.notification').addClass('checkbox').append($('div.notification > input'));
+                $('label.notification .colon').before($('span#notifyQualifier'));
+                $('#div_notification2 > label').addClass('checkbox').append($('#div_notification2 > input[type="checkbox"]'));
+                $('div.internal').addClass('helpbubble');
+                $('div.notification').addClass('helpbubble');
+                $('#div_notification2 > a').addClass('helpbubble');
+                $('#options .helpbubble').each(function() {
+                    $(this).prev().append($(this));
+                });
+                
+                $('.CustCClist > a').addClass('helpbubble');
+                
+                addBootstrapButtons('#attachUI .cssLink', null, 'link');
+                var attachLinkCheck = setInterval(function() {
+                    if($('#attachUI span.cssLink').length) {
+                        addBootstrapButtons('#attachUI span.cssLink', null, 'link');
+                        // TODO: determine if js or css is the way to go
+                        if($('#attachLinkDiv:hidden').length) {
+                            clearInterval(attachLinkCheck);
+                        }
+                    }
+                }, 500);                
+                
+                addBootstrapButtons('.customerEmailList input[type="submit"]');
+                addBootstrapButtons('#finish', null, 'primary');
+            }
+            
+            // classic mode
+            if(window.location.search.indexOf('style=classic') != -1) {                
+                addBootstrapForm('.ticketdetails', '#configFields div.formField', '#configFields div.formField .formlabel', '#configFields div.formField .forminput', 'horizontal');    
+                $('#div_notification2').addClass('control-group');
+                // single checkbox fields
+                addBootstrapFormInputs('.ticketdetails div[class*=CHECKBOX_] input[type="checkbox"]', 'checkbox');
+                // multi checkbox fields
+                addBootstrapFormInputs('fieldset.ticketdetails div[class*=CHECKBOXMULTIPLE] .radio', 'multicheckbox', '.ticketdetails');
+                // radio fields
+                addBootstrapFormInputs('.ticketdetails div[class*=RADIO] .radio', 'radio');
+                
+                $('.ticketdetails input[name*=TEXT]').addClass('span6');
+                $('.ticketdetails textarea').addClass('span6').attr('rows', '4');
+
+                // buttons
+                addBootstrapButtons('input[type="button"]');
+                
+                // waiting til easyanswer is triggered
+                var easyAnsCheck = setInterval(function() {
+                    if($('#easyAnswerPreviewPanel').length) {
+                        clearInterval(easyAnsCheck);
+                        
+                        $('#divEasyAnswer').addClass('well');
+                        
+                        // buttons
+                        addBootstrapButtons('input[type="button"]');
+                        addBootstrapButtons('button[type="button"]');
+                        addBootstrapButtons('#btn_answerFound', null, 'primary');
+                        $('button#resultsFound').appendTo('#div_answerFound');
+                        
+                        // results
+                        addBootstrapTables('.easyAnswerResultsBox table', 'hover'); 
+                        
+                        // waiting after easyanswers results are found
+                        //var paginationCheck = setInterval(function() {
+                            //if($('.easyAnswerPagination .yui-pg-page')) {
+                                // easyAnswerPagination').each(function() {
+                                    // if($(this).find('.yui-pg-page').length == 1) {
+                                        // console.log('found one page');
+                                        // $('.easyAnswerPagination').css('display', 'none');
+                                    // }
+                                // });
+                                //clearInterval(paginationCheck);                               
+                                //$('.easyAnswerPagination').addClass('pagination').contents().wrapAll('<ul/>');
+                                //$('.easyAnswerPagination .yui-pg-pages').children().each(function() {
+                                    //$(this).contents().wrapAll('<li/>');
+                                //});
+                            //}
+                        //}, 500);
+                        
+                        // kb article modal
+                        $('#easyAnswerPreviewPanel').addClass('modal');
+                        $('#easyAnswerPreviewPanel .hd').addClass('modal-header');
+                        $('#easyAnswerPreviewPanel .bd').addClass('modal-body');
+                        $('#easyAnswerPreviewPanel .ft').addClass('modal-footer');
+                        
+                        // waiting til easyanswer kb article modal is triggered
+                        var easyAnsKBCheck = setInterval(function() {
+                            //if($('#easyAnswerPreviewPanel > .container-close').length) {
+                                //if(!$('#easyAnswerPreviewPanel_c:hidden').length) {
+                                if($('.container-close').length && !$('.modal-header > h3').length) {
+                                    $('.container-close').addClass('close').html('&times;')
+                                    $('.modal-header').contents().remove();
+                                    $('.modal-header').append($('#easyAnswerPreviewPanel .contentHead2'));
+                                    $('#easyAnswerPreviewPanel .contentHead2').contents().unwrap().wrapAll('<h3/>');
+                                }
+                            //}
+                        }, 500);                 
+                    }
+                }, 500);
+            }
+        }
+        else if(window.location.pathname.indexOf('ticketNewPreview.asp') != -1) {
+            addBootstrapForm('#ticketform', '#ticketform .formField', '#ticketform .formlabel', '#ticketform .forminput', 'horizontal');
+            addBootstrapButtons('#btnFinish', null, 'primary');
+        }
+        
+        
+        /*************************
+         * Chat Window
+         *************************/
+        // @todo
+        // style is defined under Setup > Customization > Customize Chat > Chat Style Sheet
+        
+        
+        /*************************
+         * Forum Page
+         *************************/
+        // @todo
+        
+        /*************************
+         * New Email Page
+         *************************/
+        else if(window.location.pathname.indexOf('email.asp') != -1) {
+            $('.buttonContainer > input').wrap('<div class="forminput"/>');
+            
+            addBootstrapForm('#email', '#email > div', '#email > div .formlabel', '#email > div .forminput', 'horizontal');
+            $('.formField input[type="text"]').addClass('span6');
+            $('.formField textarea').addClass('span6').attr('rows', '8');
+            $('.buttonContainer .formButton').addClass('btn-primary');
+        }
+        
+        
+        /*************************
+         * New Feedback Page
+         *************************/
+        else if(window.location.pathname.indexOf('feedback.asp') != -1) {
+            $('#email').addClass('form-horizontal');
+            $('#email > div').addClass('control-group');
+            $('#email > div .formlabel').addClass('control-label');
+            $('#email > div .forminput').addClass('controls');
+            $('.formField input[type="text"]').addClass('span6');
+            $('.formField textarea').addClass('span6');
+            $('.forminput input[type="submit"]').addClass('btn-primary');
+        }
+        
+        
+        /*************************
+         * Contact Us Page
+         *************************/
+        else if(window.location.pathname.indexOf('contactUs.asp') != -1) {
+        }
+        
+        
+        /*************************
+         * My History Page
+         *************************/
+        else if(window.location.pathname.indexOf('myhistory.asp') != -1) {
+            $('.parature_page_content > h2').prependTo('#myTicketHistory');
+            
+            $('#myTicketHistory .ticketsearch').after('<div class="listlinks"></div>');
+            $('#myTicketHistory .listlinks').append($('#myTicketHistory > a'));
+            
+            addBootstrapButtons('input[type="submit"]');
+            
+            $('.tableList').each(function() {
+                var self = $(this);
+                addBootstrapTables(self, 'striped', true);
+            });
+            
+            // search
+            $('#myTicketHistory #ticketsearch').addClass('form-inline');
+            addBootstrapFormPrependAppend('#myTicketHistory #ticketsearch', '#myTicketHistory #ticketsearch input[name="ticketNum"]', '#myTicketHistory #ticketsearch input[type="submit"]', 'append');
+            $('#myTicketHistory #ticketsearch ul').insertBefore('#myTicketHistory #ticketsearch .input-append').contents().unwrap();
+            $('#myTicketHistory #ticketsearch li').each(function(index) {
+                if(index == 0) {
+                    $(this).insertBefore('#myTicketHistory #ticketsearch .input-append').contents().unwrap();
+                }
+                $(this).remove();
+            });
+            
+            addBootstrapButtons('#myProductHistory .newticket');
+            $('#myrecent').addClass('well');
+        }
+        
+        
+        /*************************
+         * My Profile Page
+         *************************/
+        else if(window.location.pathname.indexOf('myprofile.asp') != -1) {
+            $('.changepw').addClass('checkbox').append($('#changePassword'));
+            $('.buttonContainer').wrapInner('<div class="forminput"/>');
+            addBootstrapForm('form[name="configFields"]', 'form[name="configFields"] .formField', 'form[name="configFields"] .formlabel', 'form[name="configFields"] .forminput', 'horizontal');
+            // multi checkbox fields
+            addBootstrapFormInputs('div[class*=CHECKBOXMULTIPLE] .radio', 'multicheckbox', '.form-horizontal');
+            
+            $('#buttonContainer input[type="submit"]').addClass('btn-primary');
+        }
+        
+        
+        /*************************
+         * My Ticket Page
+         *************************/
+        else if(window.location.pathname.indexOf('mytickets.asp') != -1) {
+            addBootstrapButtons('input[type="submit"]');
+            
+            $('#A1').appendTo('#header > div');
+            addBootstrapButtons('#A1', null ,'primary');
+            
+            // search
+            $('#myTicketSearchForm').addClass('form-inline');
+            addBootstrapFormPrependAppend('#myTicketSearchForm', '#myTicketSearchForm input[name="ticketNum"]', '#myTicketSearchForm input[type="submit"]', 'append');
+            $('#myTicketSearchForm ul').insertBefore('#myTicketSearchForm .input-append').contents().unwrap();
+            $('#myTicketSearchForm li').each(function(index) {
+                if(index == 0) {
+                    $(this).insertBefore('#myTicketSearchForm .input-append').contents().unwrap();
+                }
+                $(this).remove();
+            });
+            $('#otherTicketOptions').insertAfter('.ticketsearch .input-append');
+            
+            // filter
+            $('#filterO').next().addClass('filterAcct');
+            $('input#remember').parent().contents().unwrap();
+            $('label.remember').addClass('checkbox').prepend($('input#remember'));
+                       
+            addBootstrapTables('.tableList', 'striped', true);
+            
+            // list size
+            $('.listNavigation').addClass('pagination');
+            $('.listNavigation select').addClass('span1');
+            
+            $('#statusLegend').wrap('<div class="statusLegend well"/>');
+            addBootstrapForm('#statusLegend', '#statusLegend .formField', '#statusLegend .formlabel', '#statusLegend .forminput', 'horizontal');
+        }
+        // ticket search
+        else if(window.location.pathname.indexOf('ticketsearch.asp') != -1) {
+            $('.buttonContainer').wrapInner('<div class="forminput"/>');
+            addBootstrapForm('#filter', '#filter .formField', '#filter .formlabel', '#filter .forminput', 'horizontal');
+            
+            $('.filter_trashed a').wrap('<span class="helpbubble"/>');
+            
+            $('#buttonContainer input#sendit').addClass('btn-primary');
+            
+            // search results
+            if(window.location.search.indexOf('filter_created') != -1) {
+                addBootstrapTables('.tableList', 'striped');
+                $('.listNavigation').addClass('pagination');
+            }
+        }
+        // ticket details
+        else if(window.location.pathname.indexOf('ticketview.asp') != -1) {
+            twoColumnLayout('ticketdetails');
+            $('.container-fluid .span3').append('<ul data-spy="affix" data-offset-top="160" class="nav nav-list bs-docs-sidenav"><li class="print"/></ul>');
+            if($('#ticketFeedback').length) {
+                $('.container-fluid .span3 .nav-list').prepend('<li class="addfeedback"/>');
+                $('.addfeedback').append($('#ticketFeedback > .formheader > a'));
+            }
+            $('.print').append($('#printTicket a'));
+            //addBootstrapImages('#printTicket a', 'print');
+            $('#ticketFeedback').addClass('well').prependTo('#ticketform');
+            
+            addBootstrapForm('#ticketform fieldset', '#ticketform .formField', '#ticketform .formlabel', '#ticketform .forminput', 'horizontal');
+
+            // feedback
+            if(!$('#ticketFeedback table tr:hidden')) {
+                $('#ticketFeedback').addClass('well');
+            }
+            // feedback modal
+            var feedbackCheck = setInterval(function() {
+                // hide modal until all changes have been applied
+                $('.feedback').hide();
+                
+                if($('#feedbackLayer .hd').length) {
+                    $('#feedbackLayer').addClass('modal');
+                    $('#feedbackLayer .hd').addClass('modal-header');
+                    $('#feedbackLayer .bd').addClass('modal-body');
+                    $('#feedbackLayer .ft').addClass('modal-footer');
+                    $('.modal-header').contents().wrapAll('<h3/>');
+                    $('.modal-header').prepend($('.container-close').addClass('close').html('&times;'));
+                    addBootstrapButtons('#feedbackLayer .yui-button button');
+                    
+                    // modifications complete, show modal
+                    $('.feedback').show();
+                }
+            }, 500);
+            
+            // actions
+            $('#action_row input').click(function() {
+                // TODO: for some reason, if placed in modal, cancel acts like submit
+                //$(this).parent().parent().addClass('ticketActions modal');
+                $('.ticketActions > legend').contents().unwrap().wrapAll('<div class="modal-header"><h3/></div>');
+            });
+            $('#comment_row').addClass('modal-body');
+            $('#comment_row textarea').addClass('span10');
+            $('#customer_cc_row').addClass('modal-body');
+            addBootstrapButtons('.CustCClist input');
+            $('#attachment_row').addClass('modal-body');
+            addBootstrapButtons('#attachUI .cssLink', null, 'link');
+            $('#submit_row').addClass('modal-footer');
+            //$('#submit_row input').click(function() {
+            if(!$('#action_row:visible')) {
+                $('.ticketActions').removeClass('modal');
+            }
+            //});
+            
+            var attachLinkCheck = setInterval(function() {
+                if($('#attachUI span.cssLink').length) {
+                    addBootstrapButtons('#attachUI span.cssLink', null, 'link');
+                    // TODO: determine if js or css is the way to go
+                    if($('#attachLinkDiv:hidden').length) {
+                        clearInterval(attachLinkCheck);
+                    }
+                }
+            }, 500);
+            
+            $('#buttonContainer input:first').addClass('btn-primary');
+            
+            addBootstrapTables('.tableList', 'striped');
+        }
+        
+        
+        /*************************
+         * My Chat Page
+         *************************/
+        else if(window.location.pathname.indexOf('mychats.asp') != -1) {
+            addBootstrapTables('.tableList', 'striped', true);
+        }
+        
+        
+        /*************************
+         * My Email Page
+         *************************/
+        else if(window.location.pathname.indexOf('myemails.asp') != -1) {
+            $('#otherEmailOptions').appendTo('#header > div');
+            addBootstrapButtons('#otherEmailOptions a', null, 'primary');
+            
+            addBootstrapTables('.tableList', 'striped', true);
+            
+            // status
+            $('#statusLegend').wrap('<div class="statusLegend well"/>');
+            addBootstrapForm('#statusLegend', '#statusLegend .formField', '#statusLegend .formlabel', '#statusLegend .forminput', 'horizontal');
+        } else if(window.location.pathname.indexOf('myemaildetails.asp') != -1) {
+            addBootstrapForm('#parature_content', '#parature_content > .formField', '#parature_content > .formField .formlabel', '#parature_content > .formField .forminput', 'horizontal');
+        }
+        
+        
+        /*************************
+         * My Product Page
+         *************************/
+        else if(window.location.pathname.toLowerCase().indexOf('myproducts.asp') != -1) {
+            $('#otherProductOptions').appendTo('#header > div');
+            
+            addBootstrapButtons('#otherProductOptions a', null, 'primary');
+            
+            addBootstrapTables('.tableList', 'striped', true);
+            $('.tableList tr').each(function() {
+                $(this).find('td:last a').addClass('btn');
+            });
+        } else if(window.location.pathname.indexOf('productRegister.asp') != -1) {
+            addBootstrapButtons('#filter', 'primary');
+            addBootstrapButtons('#finish', 'primary');
+            $('.buttonContainer').wrapInner('<div class="forminput"/>');
+            addBootstrapForm('#configFields', '#configFields .formField', '#configFields .formlabel', '#configFields .forminput', 'horizontal');
+        } else if(window.location.pathname.indexOf('productView.asp') != -1) {
+            addBootstrapForm('.parature_page_content', '.parature_page_content > .formField', '.parature_page_content > .formField .formlabel', '.parature_page_content > .formField .forminput', 'horizontal');
+        }
+        
+        
+        /*************************
+         * My Subscription Page
+         *************************/
+        else if(window.location.pathname.indexOf('mysubscriptions.asp') != -1) {
+            addBootstrapTables('.tableList', 'striped', true);
+            $('.mysubscriptions tr').each(function() {
+                $(this).find('td:last a').addClass('btn btn-danger');
+            });
+        }
+
+        /*************************
+         * Coppa
+         *************************/
+        else if(window.location.pathname.indexOf('coppa.asp') != -1) {
+            // use config #821 Portal.Security.AgeCheckMessage instead
+            // to match existing markup for consistency
+            // <h1 class="title"></h1>
+            // <span class="titledesc"></span>
+            
+            addBootstrapButtons('#dateSelector #formButton');
+            
+            // inline form
+            $('#dateSelector').addClass('form-inline');
+            $('#dateSelector span').contents().unwrap();
+        }
+        
+        
+        /*************************
+         * Search Page
+         *************************/
+        else if(window.location.pathname.indexOf('search.asp') != -1) {
+            twoColumnLayout();
+            $('.container-fluid .span3').append($('.advsearchhelp')).append($('.searchlegend'));
+            $('#parature_wrapper').appendTo('.container-fluid .span9');
+            
+            // sub folder checkbox
+            $('.searchSubfolders').parent().contents().wrapAll('<label class="checkbox searchSubFolders"></label>');
+            $('.searchSubfolders').each(function() {
+                $(this).contents().unwrap();
+            });
+            
+            $('span.radio').contents().unwrap();
+            $('.radioOption').each(function() {
+                $(this).contents().unwrap().wrapAll('<label class="radio"></label>');
+            });
+        }
+        
+        
+        /*************************
+         * Global - Misc
+         *************************/
+        // title
+        $('h1.title').prependTo('#header > div');
+        $('.titledesc').appendTo('#header > div');
+        
+        // tabs
+        // maybe just update .selected class to match
+        $('ul.nav li.selected').addClass('active');
+        
+        // mask
+        var maskCheck = setInterval(function() {
+            if($('.mask').length) {
+                clearInterval(maskCheck);
+                $('.mask').addClass('modal-backdrop');
+                // TODO: determine if js or css is the way to go
+            }
+        }, 500);
+        
+        // localization
+        document.documentElement.setAttribute("lang", "en");
+        
+        // modifications complete, show portal
+        $('body').show();
+    });
+</script>
+
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
