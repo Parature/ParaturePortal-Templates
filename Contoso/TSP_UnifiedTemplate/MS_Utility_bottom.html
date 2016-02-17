@@ -1,0 +1,79 @@
+﻿<!-- Close Main Wrapper -->
+</div>
+
+<div id="footer">
+    
+
+</div>
+
+<!-- Portal Scripts -->
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  // CLEARFIX //
+
+  $('#parature_navigation ul').addClass('clearfix');
+  $('#kbGlance').addClass('clearfix');
+  $('#dlGlance').addClass('clearfix');
+  $('#parature_content').addClass('clearfix');
+  $('#parature_search').addClass('clearfix');
+  $('ul.splash').addClass('clearfix');
+  $('ul#glossary_alphabets').addClass('clearfix');
+
+  //  NAVIGATION //
+
+  // Insert Navigation Divs
+  $('<div id="Nav-Container" class="clearfix"></div>').prependTo('#parature_navigation');
+        $('<div id="leftNav"></div>').appendTo('#Nav-Container');
+        $('<div id="rightNav"></div>').appendTo('#Nav-Container');
+
+        // Dropdown for My Support
+        $('<ul class="dropdown"></ul>').appendTo('li#mli_my');
+        $('li#mli_myChats').appendTo('li#mli_my ul.dropdown');
+        $('li#mli_myHistory').appendTo('li#mli_my ul.dropdown');
+        $('li#mli_myProfile').appendTo('li#mli_my ul.dropdown');
+        $('li#mli_myTickets').appendTo('li#mli_my ul.dropdown');
+        $('li#mli_mySubscriptions').appendTo('li#mli_my ul.dropdown');
+        $('li#mli_myProducts').appendTo('li#mli_my ul.dropdown');
+        $('li#mli_myEmails').appendTo('li#mli_my ul.dropdown');
+
+        // Dropdown for Online Support
+        $('<ul class="dropdown"></ul>').appendTo('li#mli_Knowledge_main');
+        $('li#mli_knowledge').appendTo('li#mli_Knowledge_main ul.dropdown');
+        $('li#mli_download').appendTo('li#mli_Knowledge_main ul.dropdown');
+        $('li#mli_glossary').appendTo('li#mli_Knowledge_main ul.dropdown');
+        $('li#mli_troubleshooter').appendTo('li#mli_Knowledge_main ul.dropdown');
+        $('li#mli_ticket').appendTo('li#mli_Knowledge_main ul.dropdown');
+        $('li#mli_email').appendTo('li#mli_Knowledge_main ul.dropdown');
+        $('li#mli_realtime').appendTo('li#mli_Knowledge_main ul.dropdown');
+        $('li#mli_forum').appendTo('li#mli_Knowledge_main ul.dropdown');
+
+        /* Caret For Dropdown */
+        $('<span class="caret"></span>').insertAfter('#mli_Knowledge_main a#mli_Knowledge_main_link');
+        $('<span class="caret"></span>').insertAfter('#mli_my a#mli_my_link');
+
+        // Move Main Menu & Utility Menu //
+  $('ul.mainmenu').appendTo('#leftNav');
+  $('ul.utilitymenu').appendTo('#rightNav');
+
+  // Remove Sub Menu //
+  $('ul.submenu').remove();
+
+  // Move Welcome //
+  $('#welcome').insertAfter('#parature_navigation');
+
+  // FOLDER TREE //
+  $('#parature_products').prependTo('#folderTree');
+
+  // LANGUAGE SELECTOR //
+  $('#languageSelector').appendTo('div#header .inner-container');
+
+  // Version Number (Temporary) //
+  $('<div class="inner-container"><i>Template Version 0.7.1</i></div>').insertAfter('#mainWrapper');
+
+  // DISPLAY: BLOCK;
+  $('body').css('display', 'block;');
+
+  });
+
+</script>

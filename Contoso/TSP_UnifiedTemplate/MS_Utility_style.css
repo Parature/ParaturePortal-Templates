@@ -1,0 +1,846 @@
+﻿/* Omni Stylesheet */
+
+
+/* General */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: #FFFFFF;
+}
+
+body {
+    font-size: 1em;
+    font-family: Segoe UI, 'SegoeUIWF', Arial, sans-serif;
+    color: #505050;
+}
+
+.clearfix:before, .clearfix:after { 
+    content: " "; 
+    display: block; 
+    height: 0; 
+    visibility: hidden; 
+}
+
+.clearfix:after { 
+    clear: both; 
+}
+
+a:link, a:visited, a:active, a:hover {
+    color: #646464;
+    padding: 0;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+select {
+    line-height: 28px;
+    height: 28px;
+}
+
+#header {
+    height: 100px;
+    background-color: #4668c5;
+}
+
+#logo {
+    width: 175px;
+    height: 50px;
+    padding: 25px 0 0 0;
+}
+
+#logo a {
+    display: block;
+    width: 175px;
+    height: 50px;
+    background-image: url('https://paratureportal.blob.core.windows.net/portalcontainer/Logo.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;                         
+}
+
+.inner-container {
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+}
+
+/* Language Selector */
+#languageSelector {
+	position: absolute;
+	top: 20px;
+	left: 785px;
+}
+
+#languageSelector  select {
+	width: 175px;
+    min-width: 175px;
+}
+
+/* Product Selector */
+
+#productSelector {
+    width: 300px;
+    min-width: 300px;
+}
+
+/* Parature Navigation */
+
+#Nav-Container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#parature_navigation {
+    background-color: #505050;
+    color: #FFFFFF;
+    height: 30px;
+}
+
+#parature_navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+#parature_navigation ul li {
+    float: left;
+}
+
+#parature_navigation ul li a {
+    color: #FFFFFF;
+}
+
+/* Navigation */
+
+#parature_navigation ul {
+    list-style: none;
+}
+
+#parature_navigation ul li {
+    float: left;
+}
+
+#parature_navigation ul li a {
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 30px;
+    text-decoration: none;
+}
+
+#parature_navigation ul li a:hover {
+    text-decoration: underline;
+}
+
+#leftNav {
+    float: left;
+}
+
+#leftNav ul li {
+    padding: 0 15px;
+}
+
+#leftNav ul li#mli_splash {
+    padding: 0 15px 0 0;
+}
+
+#rightNav {
+    float: right;
+}
+
+div#parature_navigation ul.mainmenu li#mli_my,
+div#parature_navigation ul.mainmenu li#mli_Knowledge_main {
+    position: relative;
+}
+
+span.caret {
+    display: block;
+    position: absolute;
+    background: url('https://paratureportal.blob.core.windows.net/portalcontainer/Carret.png')no-repeat;
+    width: 7px;
+    height: 10px;
+    right: 0px;
+    top: 13px;
+    z-index: 999999;
+    cursor: pointer;
+}
+
+div#parature_navigation ul.mainmenu li#mli_my {
+    background-position: 107px 13px;
+}
+
+div#parature_navigation ul.mainmenu li#mli_Knowledge_main {
+    background-position: 132px 13px;
+}
+
+/* Dropdown Menu */
+
+div#parature_navigation ul.mainmenu ul {
+    background: #000000;
+    list-style: none;
+    position: absolute;
+    left: -9999px;
+    box-shadow: 3px 0px 10px #505050;
+    -webkit-box-shadow: 3px 0px 10px #505050;
+    -moz-box-shadow: 3px 0px 10px #505050;
+}
+
+div#parature_navigation ul.mainmenu ul li {
+    margin-right: 0px;
+    float: none;
+    padding: 0;
+}
+
+div#parature_navigation ul.mainmenu ul li a {
+    white-space: nowrap;
+    text-transform: none;
+    display: block;
+}
+
+div#parature_navigation ul.mainmenu li:hover ul {
+    left: 15px;
+    z-index: 9999;
+}
+
+div#parature_navigation ul.mainmenu li:hover a {
+}
+
+div#parature_navigation ul.mainmenu li:hover ul a {
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 5px 25px 5px 10px;
+}
+
+div#parature_navigation ul.mainmenu li:hover ul li a:hover {
+    background: #CCCCCC;
+    color: #000000;
+}
+
+div#parature_navigation ul.dropdown li a {
+    margin-right: 0;
+}
+
+/* Welcome */
+
+#welcome {
+    width: 960px;
+    text-align: right;
+    font-size: 0.8em;
+    margin: 2px auto;
+    color: #505050;
+}
+
+/* Parature Content */
+
+#parature_content {
+    width: 960px;
+    min-height: 400px;
+    margin: 20px auto;
+    background-image: none;
+}
+
+/* Paature Search */
+
+#parature_search {
+    width: 960px;
+    margin: 5px auto;
+}
+
+input#searchInput {
+    float: left;
+    width: 100%;
+    font-size: 1em;
+    background-color: #e1e1e1;
+    color: #505050;
+    border: none;
+    height: 30px;
+    text-indent: 7px;
+    line-height: 30px;
+    padding: 0;
+}
+
+#parature_search input[type=submit] {
+    float: left;
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    width: 30px;
+    height: 30px;
+    margin: 0 0 0 -30px;
+    padding: 0;
+    background-image: url('https://paratureportal.blob.core.windows.net/portalcontainer/MagnifyGlass.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;    
+}
+
+#parature_search input[type=submit]:hover {
+    background-position: -30px 0px;
+}
+
+/* Portal Content */
+
+#portal_content {
+    position: relative;
+    float: left;
+    width: 695px;
+    padding: 15px 15px 15px 0;
+}
+
+/* Title & Titledesc */
+
+h1.title {
+    margin: 0 0 5px 0;
+}
+
+span.titledesc p {
+    text-align: left !important;
+}
+
+/* Splash */
+
+ul.splash {
+    margin: 15px 0 0 0;
+    padding: 0;
+}
+
+#parature_content ul.splash li {
+    display: block;
+    float: left;
+    width: 48%;
+    margin: 5px 2% 8px 0;
+    background-color: #e1e1e1;
+    min-height: 125px;
+}
+
+ul.splash li span.splash_description {
+    display: block;
+    padding: 2px 7px;
+}
+
+ul.splash li a {
+    display: block;
+    background-color: #505050;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.3em;
+    padding: 2px 7px;
+}
+
+ul.splash li a:hover {
+    text-decoration: underline;
+}
+
+/* KB Glance & DL Glance */
+
+div.mostSection {
+    float: left;
+    width: 47%;
+    padding: 0;
+    margin: 10px 3% 10px 0;
+}
+
+div.mostSection h3 {
+    display: block;
+    font-size: 1.2em;
+    border-bottom: 1px solid #505050;
+    margin: 0 0 5px 0;
+}
+
+#dlGlance ol,
+#kbGlance ol {
+    list-style: none;    
+}
+
+#dlGlance ol li,
+#kbGlance ol li {
+    padding: 2px 0;
+}
+
+#dlGlance ol li span.item,
+#kbGlance ol li span.item {
+    display: none;
+}
+
+#dlGlance ol li a,
+#kbGlance ol li a {
+    text-decoration: none;
+}
+
+#dlGlance ol li a:hover,
+#kbGlance ol li a:hover {
+    text-decoration: underline;
+}
+
+/* Product Selector */
+
+#parature_products {
+    display: none;
+    padding: 15px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+#productSelectorLabel {
+    color: #FFFFFF;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+/* Folder Tree */
+
+h3.treeTitle {
+    font-size: 1.3em;
+    color: #FFFFFF;
+    margin: 0;
+    font-weight: 500;
+    line-height: 2em;
+}
+
+#folderTree {
+    float: left;
+    width: 250px;
+    padding: 0 0 15px 0;
+}
+
+#folderTree a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#folderTree a:hover {
+    text-decoration: underline;
+}
+
+#kbTree,
+#dlTree {
+    padding: 5px 15px 0px 15px;
+}
+
+/* Ticket */
+
+#ticketSubmissionMethodSelection {
+    margin: 10px 0;
+}
+
+#buttonContainer {
+    margin: 10px 0;
+}
+
+div.formField {
+    display: block;
+    margin: 7px 0;
+}
+
+/* KB Article */
+
+#kbutility {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+}
+
+#kbutility ul li {
+    float: left;
+    margin-right: 7px;
+}
+
+#kbutility ul li a {
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+#kbutility ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Powered By */
+
+#poweredby {
+    width: 960px;
+    margin: 10px auto;
+}
+
+/* Inputs, Selects, TextAreas, Fieldsets, Labels, etc. */
+
+fieldset {
+    display: block;
+    margin: 10px 0 15px 0;
+}
+
+label {
+    font-size: 1em;
+}
+
+select {
+    background-color: #e1e1e1;
+    color: #505050;
+    border: none;
+    height: 30px;
+    line-height: 28px;
+    min-width: 300px;
+    width: 50%;
+    text-indent: 3px;
+}
+
+select.multipleSelect {
+    height: 100px;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: #e1e1e1;
+    color: #505050;
+    border: none;
+    height: 30px;
+    line-height: 28px;
+    min-width: 300px;
+    width: 50%;
+    padding: 0;
+    text-indent: 7px;
+}
+
+textarea {
+    padding: 1%;
+    min-height: 118px;
+    width: 48%;
+    border: none;
+    background-color: #e1e1e1;
+}
+
+input[type="submit"],
+input[type="button"] {
+    background-color: #505050;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #4668c5;
+}
+
+.radio, .checkbox {
+    padding-left: 0;
+    margin-right: 15px;
+}
+
+table {
+    width: 100%;
+}
+
+/* TreeView Buttons */
+
+div#KBTreeControl button,
+div#DLTreeControl button {
+    background-color: #E1E1E1;
+    color: #505050;
+    border: none;
+    padding: 5px;
+    margin: 0px 5px 5px 0px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+div#KBTreeControl button:hover,
+div#DLTreeControl button:hover {
+    background-color: #4668c5;
+    color: #FFFFFF;
+}
+
+/* Sign In Page */
+
+#loginForm {
+    width: 40%;
+    padding: 0 5% 0 0;
+    border-right: 2px solid #505050;
+    margin: 0 3% 0 0;
+}
+
+#registerForm {
+    float: right;
+    width: 42%;
+    padding: 0 3%;
+}
+
+/* Manage Favorite Products */
+
+/* kbsplash_asp Background For Pages & Adjust Width */
+
+body.splash_asp #parature_content,
+body.kbsplash_asp #parature_content,
+body.dlsplash #parature_content,
+body.kblist_asp #parature_content,
+body.dllist #parature_content,
+body.kbarticle #parature_content {
+    background-image: url('https://paratureportal.blob.core.windows.net/portalcontainer/background1.png');
+    background-repeat: repeat-y;
+}
+
+body.splash_asp #parature_products,
+body.kbsplash_asp #parature_products,
+body.dlsplash_asp #parature_products,
+body.kblist_asp #parature_products,
+body.dllist_asp #parature_products,
+body.kbanswer_asp #parature_products,
+#preChat #parature_products {
+    display: block;
+}
+
+/* OLs & ULs */
+
+ol.kbsplash,
+ol.dlsplash {
+    float: left;
+    width: 47%;
+    padding: 0;
+    margin: 10px 3% 10px 0;
+    list-style: none;
+    min-height: 200px;
+}
+
+ol.kbsplash li
+ol.dlsplash li {
+    padding: 2px 0;
+}
+
+ol.kbsplash li.heading,
+ol.dlsplash li.heading {
+    display: block;
+    font-size: 1.2em;
+    border-bottom: 1px solid #505050;
+    margin: 0 0 5px 0;
+}
+
+ol.kbsplash li span.item {
+    display: none;
+}
+
+ol.dlsplash li span.subfolder,
+ol.dlsplash li span.desc {
+    display: none;
+}
+
+ol.dlsplash li.heading span.desc {
+    display: block;
+}
+
+ol.kbsplash li a,
+ol.dlsplash li a {
+    text-decoration: none;
+}
+
+ol.kbsplash li a:hover,
+ol.dlsplash li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Manage Favorite Products */
+
+div#products select {
+    min-width: 100%;
+    width: 40%;
+}
+
+input#txtProductsAutocomplete {
+    height: 26px;
+}
+
+/* Tables */
+
+table { width: 100%; }
+
+div#parature_wrapper .tableList table { 
+	width: 100%; 
+	border-collapse: collapse; 
+	margin-bottom: 20px; 
+	border: 1px solid #d1d1d1;
+	margin: 15px 0px;
+}
+
+div#parature_wrapper .tableList th a {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 2px 0px 2px 3px;
+	display: block;
+}
+
+div#parature_wrapper .tableList th { 
+	padding-bottom: 5px;
+	text-align: left;
+	color: white;
+	background: #4668c5;
+}
+
+div#parature_wrapper .tableList td { 
+	padding: 10px 5px;
+	text-align: left;
+	vertical-align: middle;
+	border: 1px solid #D1D1D1;
+}
+
+div#parature_wrapper .tableList td a {
+	font-weight: bold;
+	color: #4668c5;
+}
+
+/* Search Results */
+
+div#results {
+    margin: 20px 0;
+    padding: 0;
+}
+
+div#results div.span3 {
+    width: 200px;
+    margin: 20px 0 0 0;
+}
+
+div#results div.span9 {
+    width: 718px;
+    margin: 0 0 0 40px;
+}
+
+div#results input[type="text"] {
+    width: 100%;
+    min-width: 100%;
+}
+
+div#results hr {
+    margin: 10px 0 5px 0;
+}
+
+div.sortBy select {
+    width: 125px;
+    min-width: 125px;
+}
+
+li.nav-header.results {
+    margin: 0 0 10px 0;
+}
+
+/* Glossary */
+
+ul#glossary_alphabets {
+    margin: 0 0 15px 0;
+}
+
+ul#glossary_alphabets li {
+    float: left;
+    margin: 0 7px 0 0;
+}
+
+/* Fight w/ Site.CSS */
+
+div#products .row-fluid .span1 {
+  width: 6.5%;
+  margin: 20% 4% 0 5.5%;
+}
+
+/* jQWidgets Override */
+
+div.jqx-tree-item-hover-arctic {
+    background-color: transparent !Important;
+    border: 1px solid #505050 !Important;
+    border-color: #505050 !Important;
+    border-radius: 0 !Important;
+    -webkit-border-radius: 0 !Important;
+    -moz-border-radius: 0 !Important;
+}
+
+/*****************************************************************************
+******************************************************************************
+******************************************************************************
+************************  TABLET LAYOUT 721PX - 960PX ************************
+******************************************************************************
+******************************************************************************
+*****************************************************************************/
+
+@media all and (max-width: 960px) and (min-width: 0px) {
+
+    /* Resets */
+
+    .inner-container,
+    #Nav-Container,
+    #parature_search,
+    #parature_content,
+    #poweredby {
+        width: 96%;
+    }
+
+    /* Remove Background */
+
+    #parature_content {
+        background-image: none !Important;
+    }
+ 
+    #portal_content {
+        float: none;
+        width: 100%;
+        padding: 0;        
+    }    
+    
+    /* Product Adjustment */
+
+    #parature_products {
+        padding: 0;
+        border-bottom: none;
+    }
+
+    /* Hide for Tablet & Mobile */
+
+    #kbTree, #dlTree {
+        display: none;
+    }
+      
+}
+
+
+/*****************************************************************************
+******************************************************************************
+******************************************************************************
+*************************  MOBILE LAYOUT 0PX - 720PX *************************
+******************************************************************************
+******************************************************************************
+*****************************************************************************/
+
+@media all and (max-width: 720px) and (min-width: 0px) {
+
+    /* Resets */
+
+    .inner-container,
+    #Nav-Container,
+    #parature_search,
+    #parature_content,
+    #poweredby {
+      width: 92%;
+    }
+
+    /* KB/DL Splash */
+
+    #parature_content ul.splash li {
+        float: none;
+        width: 100%;
+        margin: 15px 0 8px 0;
+    }
+
+    /* Most Popular / Most Recent */
+
+    div.mostSection {
+        float: none;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+}

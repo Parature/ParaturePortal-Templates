@@ -1,0 +1,33 @@
+﻿<div id="header">
+    <div class="inner-container">
+        <div id="logo">
+            <a class="image" href="http://www.parature.com" target="_blank"></a>
+        </div>
+    </div>
+	<!-- Off Canvas Button -->
+    <p class="show-for-small">
+        <a class='sidebar-button button' id="sidebarButton" href="#sidebar"></a>
+    </p>
+</div>
+
+<div id="mainWrapper">
+    <!-- Off Canvas Navigation Section -->
+	<section id="sidebar" role="complementary">
+        <nav id="sideMenu" role="navigation">
+            <ul id="sideMainNav" class="nav-bar">
+                
+            </ul>
+        </nav>
+    </section>
+
+   <div id="parature_search" class="search2">
+		<script type="text/javascript">
+			$(function() {
+				$("#parature_search.search2>form").attr("action","/Support/" + paraCust.portalAcctID + "/" + paraCust.portalDeptID + "/en-US/Search/SearchQuery");
+			});
+		</script>
+		<form action="" method="post" novalidate="novalidate">
+		<input id="searchInput" name="searchInput" placeholder="Enter search term" type="text" value="">
+		    <input type="submit" value="Search">
+		</form>
+    </div>
